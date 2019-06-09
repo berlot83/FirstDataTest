@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>FirstData Basic Operations</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+	crossorigin="anonymous" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+</head>
+<body>
+<div class="w-100 d-flex">
+	<div class="w-48 padding10">
+		<div class="card rounded" style="max-width: 500px; margin: 0 auto">
+			<h2 class="card-header bg-primary text-white">Credit cards</h2>
+			
+			<div class="padding20">
+				<div id="creditCards" class="padding10">
+				<input type="radio" name="creditCard" id="creditCard" value="SQUA"/>
+				<i class="fab fa-cc-amex" style="font-size: 36px"></i> <input
+					type="radio" name="creditCard" value="SCO" /> <i
+					class="fab fa-cc-mastercard" style="font-size: 36px"></i>
+					<input type="radio" name="creditCard" value="PERE" /> <i
+					class="fab fa-cc-visa" style="font-size: 36px"></i>
+				</div>
+				
+				<div id="creditCardDiv" class="d-flex flex-column">
+					<input type="text" id="creditNumber" class="form-control padding20" placeholder="xxxx-xxxx-xxxx-xxxx" />
+					<button onclick="checkCard()" class="btn btn-sm btn-primary">checkCard</button>
+					<small class="text-secondary">No need to select card just check valid Card</small>
+					<small class="text-secondary">Example: 5312345678945612</small>
+					<small class="text-secondary">Example: 4123456789123369</small>
+					<small class="text-secondary">Example: 371234567894561</small>				
+				</div>
+				
+				<div class="d-flex flex-column justify-content-center padding20">
+					<h4><strong>Credit Cards info</strong></h4>
+					<small class="text-secondary">Must be selected a credit card upside</small>
+					<button onclick="getCardInformation()"
+						class="btn btn-sm btn-primary">View one Card information (Select card)</button>
+					<button onclick="getAllCardInformation()"
+						class="btn btn-sm btn-success">View all cards information  (No select needed)</button>
+					<button onclick="getRates()" class="btn btn-sm btn-danger">View
+						rates from Card (Select card)</button>
+					<button onclick="getCardName()" class="btn btn-sm btn-info">View
+						Name of the Card (Select card)</button>
+				</div>
+				<div>
+				<h4><strong>Buy some item</strong></h4>
+					<small class="text-secondary">Select a card to check amount and expiry date</small>
+					<div class="form-group">
+						<label>Date:</label>
+						<input type="date" id="date" class="padding10 form-control"/>
+						<small>Max expiry day of the card</small>
+					</div>
+					<div class="form-group">
+						<label>Amount:</label>
+						<input type="number" placeholder="enter amount to pay" id="totalAmount" class="padding10 form-control"/>
+						<small>Max 1000</small>
+					</div>
+					<button onclick="buyItem()" class="btn btn-sm btn-warning">Buy
+						some item</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="results"  class="w-48 padding10">
+		<div class="card rounded" style="max-width: 500px; margin: 0 auto">
+		<h2 class="card-header bg-success text-white">Results</h2>
+			<pre id="console" class="padding20">
+			
+			</pre>
+		</div>
+	</div>
+</div>
+	<footer>
+		<script src="js/ajax.js"></script>
+	</footer>
+</body>
+</html>
