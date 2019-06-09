@@ -18,4 +18,6 @@ public interface BasicAction<T extends CreditCard> {
 	double retriveActiveRates(T card) throws Exception;
 
 	boolean validAmount(double money);
+
+	boolean checkNotBeforeDate(LocalDate dateOfCharge);
 }

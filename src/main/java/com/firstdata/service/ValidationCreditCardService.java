@@ -127,7 +127,7 @@ public class ValidationCreditCardService {
 			throw new Exception("Date or Total amount are invalid or incomplete.");
 		}
 		
-		if(creditCardImplementations.checkExpirationDate(cd, charge.getDate())) {
+		if(creditCardImplementations.checkExpirationDate(cd, charge.getDate()) && creditCardImplementations.checkNotBeforeDate(charge.getDate())) {
 			if(creditCardImplementations.validAmount(charge.getTotalAmount())) {
 				onChargeImplementations.imprimirFactura(cd);
 				onChargeImplementations.enviarInfoTC(cd);

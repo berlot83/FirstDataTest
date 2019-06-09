@@ -65,4 +65,14 @@ public class CreditCardImplementations implements BasicAction<CreditCard> {
 			return false;
 		}
 	}
+	
+	@Override
+	public boolean checkNotBeforeDate(LocalDate dateOfCharge) {
+		LocalDate now = LocalDate.now().minusDays(1);
+		if (now.isBefore(dateOfCharge)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
