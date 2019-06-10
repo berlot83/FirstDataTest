@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -62,6 +63,16 @@ public class ValidationCreditCardService {
 		}else {
 			logger.error("This card is not available on the system");
 			throw new Exception("Type of card not registered on the system");
+		}
+	}
+	
+	/* Compare all attributes from two cards */
+	@PostMapping("/card/compare")
+	public boolean compareCards(@ModelAttribute CreditCard card1, @ModelAttribute CreditCard card2) throws Exception {
+		if(creditCardImplementations.compareCards(card1, card2)) {
+			return true;
+		}else{
+			return false;
 		}
 	}
 	

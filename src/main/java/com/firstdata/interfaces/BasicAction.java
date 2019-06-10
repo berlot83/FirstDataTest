@@ -20,4 +20,7 @@ public interface BasicAction<T extends CreditCard> {
 	boolean validAmount(double money);
 
 	boolean checkNotBeforeDate(LocalDate dateOfCharge);
+	
+	boolean compareCards(CreditCard card1, CreditCard card2) throws Exception;
+		
 }

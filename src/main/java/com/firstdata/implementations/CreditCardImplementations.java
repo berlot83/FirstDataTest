@@ -75,4 +75,14 @@ public class CreditCardImplementations implements BasicAction<CreditCard> {
 			return false;
 		}
 	}
+
+	@Override
+	public boolean compareCards(CreditCard card1, CreditCard card2) throws Exception {
+		if(card1.getBrandName().equals(card2.getBrandName()) && card1.getCardNumber().equals(card2.getCardNumber()) && card1.getExpiration().equals(card2.getExpiration())) {
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
 }
